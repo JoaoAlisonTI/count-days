@@ -23,11 +23,14 @@ function App() {
     <h2 className="mt-10 flex justify-center items-center text-center font-semibold">Momentos Aguardados <MoveDown className="text-lime-300"/></h2>
     
     <section>
-      {momentos.map((momento, indice) => 
+      {momentos.length > 0 ?
+      momentos.map((momento, indice) => 
       <DayCard 
         key={indice} 
         momento={momento} 
-      />)}
+      />) : 
+        <EmptyContent />
+      }
       
     </section>
     </main>
