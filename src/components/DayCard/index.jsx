@@ -1,6 +1,6 @@
 import { CalendarDays, TimerReset, Bookmark, CircleX } from "lucide-react"
 
-export const DayCard = ({ momento }) => {
+export const DayCard = ({ momento, aoDeletar }) => {
   
   function calcularDiasAte(dataAlvo) {
     const hoje = new Date();
@@ -33,7 +33,7 @@ export const DayCard = ({ momento }) => {
         <span className="w-full flex items-center gap-1">
           <CalendarDays size="20" className="text-lime-300"/> {formatarData(momento.data)}
         </span>
-        <button className="bg-none border-none">
+        <button className="bg-none border-none" onClick={() => aoDeletar(momento.id)}>
           <CircleX className="text-red-400" />
         </button>
       </div>

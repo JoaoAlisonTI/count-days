@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Toaster, toast } from 'sonner'
 import { Tag, CalendarSearch} from "lucide-react"
+import { v4 as uuidv4 } from 'uuid'
 
 export const Form = (props) => {
   
@@ -11,7 +12,7 @@ export const Form = (props) => {
     evento.preventDefault()
     toast.success('Contagem criada com sucesso!')
     props.aoCriar({
-      //id: uuidv4(),
+      id: uuidv4(),
       titulo,
       data
     })

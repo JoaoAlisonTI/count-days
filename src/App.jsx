@@ -1,16 +1,24 @@
 import { useState } from "react"
+import { Toaster, toast } from 'sonner'
 import { MoveDown } from "lucide-react"
 import { Header } from "./components/Header"
 import { Form } from "./components/Form"
 import { DayCard } from "./components/DayCard"
 import { EmptyContent } from "./components/EmptyContent"
 
+
 function App() {
   
   const [momentos, setMomentos] = useState([])
   
+  function deletarMomento(id) {
+    setMomentos(momentos.filter(momento => momento.id !== id))
+    toast.success('Excluído com sucesso!')
+  }
+  
   return (
     <main className="w-full px-2.5">
+    <Toaster richColors position="top-left" />
     <Header />
     <div className="mt-6">
       <p className="text-base text-zinc-400">Olá! Bem-vindo(a) ao count.days, onde você acompanha o tempo até seus momentos especiais. Adicione seus momentos, e nós <span className="text-lime-300">contaremos</span> os dias por você!</p>
@@ -28,6 +36,7 @@ function App() {
       <DayCard 
         key={indice} 
         momento={momento} 
+        aoDeletar={deletarMomento}
       />) : 
         <EmptyContent />
       }
