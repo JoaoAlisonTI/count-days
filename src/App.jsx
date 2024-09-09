@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Toaster, toast } from 'sonner'
 import { MoveDown } from "lucide-react"
 import { Header } from "./components/Header"
@@ -11,8 +11,25 @@ function App() {
   
   const [momentos, setMomentos] = useState([])
   
+  useEffect(() => {
+    const dadosSalvos = localStorage.getItem('momentos');
+    if (dadosSalvos) {
+      setMomentos(JSON.parse(dadosSalvos));
+    }
+  }, []);
+  
+  useEffect(() => {
+    if (momentos.length > 0) {
+      localStorage.setItem('momentos', JSON.stringify(momentos));
+    }
+  }, [momentos]);
+  
+  
   function deletarMomento(id) {
-    setMomentos(momentos.filter(momento => momento.id !== id))
+    const momentosAtualizadosAposExlusao = momentos.filter(momento => momento.id !== id)
+    setMomentos(momentosAtualizadosAposExlusao)
+    localStorage.setItem('momentos', JSON.stringify(momentosAtualizadosAposExlusao))
+    
     toast.success('Excluído com sucesso!')
   }
   
