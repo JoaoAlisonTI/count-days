@@ -35,7 +35,7 @@ function App() {
   }
   
   return (
-    <main className="w-full px-2.5">
+    <main className="w-full px-2.5 xl:min-w-5xl">
     <Toaster richColors position="top-left" />
     <Header />
     <div className="mt-6">
@@ -47,9 +47,8 @@ function App() {
     <div className="w-full mt-6 border-2 rounded-2xl border-zinc-800" />
     
     <h2 className="mt-10 flex justify-center items-center text-center font-semibold">Momentos Aguardados <MoveDown className="text-lime-300"/></h2>
-    <div className="w-full">
-    </div>
-    <section>
+
+    <section className="mb-52 lg:min-h-screen">
       {momentos.length > 0 ?
       momentos.map((momento, indice) => 
       <DayCard 
