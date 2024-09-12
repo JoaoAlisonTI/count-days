@@ -1,6 +1,6 @@
-import { CalendarDays, TimerReset, Bookmark, CircleX } from "lucide-react"
+import { CalendarDays, TimerReset, TimerOff, Bookmark, BookmarkCheck, CircleX } from "lucide-react"
 
-export const DayCard = ({ momento, aoDeletar }) => {
+export const DayCard = ({ momento, aoDeletar}) => {
   
   function calcularDiasAte(dataAlvo) {
     const hoje = new Date();
@@ -39,11 +39,23 @@ export const DayCard = ({ momento, aoDeletar }) => {
       </div>
       
       <span className="flex items-center gap-1">
-        <Bookmark size="20" className="text-lime-300"/>
+        {diasRestantes <= 0 ?
+          <BookmarkCheck size="20" className="text-lime-300"/>
+          :
+          <Bookmark size="20" className="text-lime-300"/>
+        }
+        
         <p>{momento.titulo}.</p>
       </span>
       
-      <span className="flex items-center gap-1"><TimerReset size="20" className="text-lime-300"/> Falta(m) {diasRestantes} dia(s)</span>
+      <span className="flex items-center gap-1">
+        {diasRestantes <= 0 ?
+          <TimerOff size="20" className="text-lime-300"/>
+          :
+          <TimerReset size="20" className="text-lime-300"/>
+        }
+        
+        {diasRestantes <= 0 ? "O dia finalmente chegou! 🏁✨" : `Falta(m) ${diasRestantes} dia(s)`}</span>
     </div>
   )
 }
