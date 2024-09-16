@@ -33,7 +33,7 @@ export const DayCard = ({ momento, aoDeletar}) => {
         <span className="w-full flex items-center gap-1">
           <CalendarDays size="20" className="text-lime-300"/> {formatarData(momento.data)}
         </span>
-        <button className="bg-none border-none" onClick={() => aoDeletar(momento.id)}>
+        <button className="bg-none border-none decoration-0 cursor-pointer focus:ring-0" onClick={() => aoDeletar(momento.id)}>
           <CircleX className="text-red-400" />
         </button>
       </div>

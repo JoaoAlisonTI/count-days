@@ -25,14 +25,13 @@ function App() {
     }
   }, [momentos]);
   
-  
   function deletarMomento(id) {
     const momentosAtualizadosAposExlusao = momentos.filter(momento => momento.id !== id)
     setMomentos(momentosAtualizadosAposExlusao)
     localStorage.setItem('momentos', JSON.stringify(momentosAtualizadosAposExlusao))
-    
     toast.success('Excluído com sucesso!')
   }
+  
   
   return (
     <main className="w-full px-2.5 xl:min-w-5xl">

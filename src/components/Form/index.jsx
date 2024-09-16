@@ -24,20 +24,20 @@ export const Form = (props) => {
     <>
       <Toaster richColors position="top-left" />
       <form onSubmit={aoSalvar} className="w-full flex flex-col gap-4 mt-6">
-      <div className="w-full flex items-center gap-2 border-2 rounded-xl border-zinc-800 py-3 px-2 cursor-pointer hover:border-lime-300">
+      <div className="w-full flex items-center gap-2 border-2 rounded-xl border-zinc-800 px-2 cursor-pointer hover:border-lime-300">
         <label>
           <Tag className="text-zinc-400 text-sm" />
         </label>
-        <input className="w-full outline-0 bg-zinc-950 placeholder-zinc-400 text-base" placeholder="Digite o titulo do momento/evento..." type="text" required value={titulo} onChange={evento => setTitulo(evento.target.value)}/>
+        <input className="w-full py-3 focus:ring-0 outline-0 border-none bg-zinc-950 placeholder-zinc-400 text-base cursor-pointer" placeholder="Digite o titulo do momento/evento..." type="text" required value={titulo} onChange={evento => setTitulo(evento.target.value)}/>
       </div>
       
-      <div className="w-full flex items-center gap-2 border-2 rounded-xl border-zinc-800 py-3 px-2 cursor-pointer hover:border-lime-300">
+      <div className="w-full flex items-center gap-2 border-2 rounded-xl border-zinc-800 px-2 cursor-pointer hover:border-lime-300">
         <label>
           <CalendarSearch className="text-zinc-400 text-sm" />
         </label>
-        <input className="w-full outline-0 bg-zinc-950 placeholder-zinc-400 text-base" placeholder="Selecione a data da atividade/evento" type="date" required value={data} onChange={evento => setData(evento.target.value)} />
+        <input className="w-full py-3 focus:ring-0 outline-0 border-none bg-zinc-950 placeholder-zinc-400 text-base cursor-pointer" placeholder="Selecione a data da atividade/evento" type="date" required value={data} onChange={evento => setData(evento.target.value)} />
       </div>
-      <button className="mt-1 border-0 decoration-0 text-center p-3 rounded-2xl bg-lime-300 text-zinc-900 text-base font-medium cursor-pointer hover:bg-lime-400">Criar contagem</button>
+      <button className="mt-1 border-none decoration-0 focus:ring-0 text-center p-3 rounded-2xl bg-lime-300 text-zinc-900 text-base font-medium cursor-pointer hover:bg-lime-400 focus:bg-lime-400">Criar contagem</button>
     </form>
     </>
   )
