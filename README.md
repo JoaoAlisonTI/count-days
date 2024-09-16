@@ -97,7 +97,7 @@ Futuras melhorias:
 </br>
 
 ## Autor
-*joaoAlisonTI 👨🏽‍💻*
+*JoaoAlisonTI 👨🏽‍💻*
 
 ---
 
